@@ -13,6 +13,17 @@ api_summary = "REST API for WatsonAssistant"
 server = "https://application-3e.1b7hlo69yoj4.eu-de.codeengine.appdomain.cloud/"
 
 
+class Ticket(BaseModel):
+    mail_address: str
+    hardware: str
+    hardware_brands: str
+    tickettypID: int
+    priority: str
+    username: str
+    telefonnummer: str
+    session_history: str
+
+
 class Response(BaseModel):
     success: bool
     message: str
@@ -21,8 +32,8 @@ class Response(BaseModel):
 app = FastAPI()
 
 
-@app.post("/create_ticket_mail", response_model=Response)
-async def send_email(request: Request):
+@app.post("/create_ticket_mail/{request}", response_model=Response)
+async def send_email(ticket:Ticket):
     data = await request.json()
     recipients = [data.get('mail_address')]
     subject = "SanTrix hat ein neues Ticket erstellt!"
