@@ -4,7 +4,7 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from pydantic import BaseModel
-from typing import List
+from typing import List, Dict, Any
 
 
 api_titel = "SanTrix REST Schnittstelle MVP 1.0"
@@ -21,7 +21,7 @@ class Ticket(BaseModel):
     priority: str
     username: str
     telefonnummer: str
-    session_history: str
+    session_history: List[Dict[str, Any]]
 
 
 class Response(BaseModel):
