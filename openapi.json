@@ -129,7 +129,10 @@
                         "title": "Telefonnummer"
                     },
                     "session_history": {
-                        "type": "string",
+                        "items": {
+                            "type": "object"
+                        },
+                        "type": "array",
                         "title": "Session History"
                     }
                 },
