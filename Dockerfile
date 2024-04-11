@@ -8,7 +8,7 @@ COPY . /app
 WORKDIR /app
 
 # Installieren Sie die Anforderungen
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir --trusted-host pypi.python.org --trusted-host pypi.org --trusted-host=files.pythonhosted.org -r requirements.txt
 
 # Exponieren Sie den Port, den Ihr FastAPI-Server verwendet
 EXPOSE 8080
